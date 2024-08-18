@@ -1,0 +1,41 @@
+{
+  "name": "hayasaka",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.6",
+    "@reduxjs/toolkit": "^1.9.5",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "eslint-config-next": "^14.2.1",
+    "extract-colors": "^4.0.2",
+    "get-pixels": "^3.3.3",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1",
+    "next": "^14.2.1",
+    "next-auth": "^4.22.3",
+    "nodemailer": "^6.9.4",
+    "postcss": "8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.1",
+    "react-swipeable": "^7.0.1",
+    "react-top-loading-bar": "^2.3.1",
+    "react-use-downloader": "^1.2.4",
+    "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
+    "swiper": "^10.0.4",
+    "tailwindcss": "3.3.3",
+    "uuid": "^9.0.1"
+  }
+}
