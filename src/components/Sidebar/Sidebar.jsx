@@ -59,7 +59,7 @@ const Sidebar = ({ showNav, setShowNav }) => {
           </p>
         </Link>
         <a
-          href="https://github.com/Itskoushik"
+          href="https://github.com/Itskoushik/hayasaka.music"
           target="_blank"
           rel="noreferrer"
         >
