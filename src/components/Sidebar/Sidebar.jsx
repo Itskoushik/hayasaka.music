@@ -53,11 +53,11 @@ const Sidebar = ({ showNav, setShowNav }) => {
         </div>
       </div>
       <div className=" mb-28 text-gray-200 mx-3 flex gap-3">
-        <Link href="/dmca">
+        {/* <Link href="/dmca">
           <p className="hover:border border-gray-200 p-1 font-medium w-fit rounded cursor-pointer text-sm">
             DMCA
-          </p>
-        </Link>
+          </p> 
+        </Link> */}
         <a
           href="https://github.com/Itskoushik/hayasaka.music"
           target="_blank"
