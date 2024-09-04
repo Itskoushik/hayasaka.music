@@ -13,18 +13,9 @@ const Downloader = ({ activeSong, icon }) => {
     ?.replace("&#039;", "'")
     ?.replace("&amp;", "&")}.mp3`;
 
-  // Extract artist, album, and other details from activeSong
-  const title = activeSong?.name || "Unknown Title";
+  // Extract artist and album details from activeSong
   const artistName = activeSong?.primaryArtists || "Unknown Artist";
   const albumName = activeSong?.album || "Unknown Album";
-  const releaseDate = activeSong?.releaseDate || "Unknown Release Date"; // Adjust if key differs
-  const duration = activeSong?.duration || 0; // Default to 0 if duration is not available
-  const genre = activeSong?.genre || "Unknown Genre"; // Adjust if key differs
-
-  // Format the duration into minutes and seconds
-  const formattedDuration = duration
-    ? `${Math.floor(duration / 60)}:${String(duration % 60).padStart(2, "0")}`
-    : "Unknown Duration";
 
   return (
     <div
@@ -49,14 +40,10 @@ const Downloader = ({ activeSong, icon }) => {
         )}
       </div>
 
-      {/* Display artist, album, and other song details */}
+      {/* Display artist and album details */}
       <div className="ml-2 text-sm text-white">
-        <p>Title: {title}</p>
         <p>Artist: {artistName}</p>
         <p>Album: {albumName}</p>
-        <p>Release Date: {releaseDate}</p>
-        <p>Duration: {formattedDuration}</p>
-        <p>Genre: {genre}</p>
       </div>
     </div>
   );
