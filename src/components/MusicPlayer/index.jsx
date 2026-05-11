@@ -113,7 +113,8 @@ const MusicPlayer = () => {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [handleKeyPress]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPlaying, isActive, isTyping]);
 
   const handlePlayPause = (e) => {
     e?.stopPropagation();
@@ -179,7 +180,7 @@ const MusicPlayer = () => {
 
   return (
     <div
-      className={`relative overflow-scroll items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${
+      className={`relative overflow-hidden items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${
         fullScreen ? "h-[100vh] w-[100vw]" : "w-full h-20 px-8 bg-black "
       }`}
       onClick={() => {
