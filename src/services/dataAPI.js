@@ -3,7 +3,11 @@ export async function homePageData(language) {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SAAVN_API}/api/modules?language=${language.toString()}`,
-      { next: { revalidate: 14400 } }
+      {
+        next: {
+          revalidate: 14400,
+        },
+      }
     );
     const data = await response.json();
     return data?.data;

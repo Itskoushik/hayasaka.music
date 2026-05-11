@@ -42,14 +42,10 @@ const SongsList = ({
   };
 
   function formatDuration(durationInSeconds) {
+    if (!durationInSeconds || isNaN(durationInSeconds)) return "";
     const minutes = Math.floor(durationInSeconds / 60);
     const seconds = Math.round(durationInSeconds % 60);
-
-    if (minutes > 0) {
-      return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    } else {
-      return `${seconds}`;
-    }
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }
 
   useEffect(() => {

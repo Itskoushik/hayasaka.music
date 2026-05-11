@@ -27,14 +27,10 @@ const Track = ({ isPlaying, isActive, activeSong, fullScreen }) => (
           ? activeSong?.name.replace("&#039;", "'").replace("&amp;", "&")
           : "Song"}
       </p>
-      <p className="truncate text-gray-300">
-        {activeSong?.artists?.primary
-          ? activeSong?.artists?.primary?.map((artist, index) => (
-              <React.Fragment key={index}>
-                {artist?.name?.trim()}
-              </React.Fragment>
-            ))
-          : "Artist"}
+      <p className="truncate text-gray-300 text-sm">
+        {activeSong?.artists?.primary?.length > 0
+          ? activeSong.artists.primary.map((a) => a?.name?.trim()).join(", ")
+          : activeSong?.primaryArtists || "Artist"}
       </p>
     </div>
   </div>

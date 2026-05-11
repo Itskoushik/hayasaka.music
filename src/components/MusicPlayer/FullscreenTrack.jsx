@@ -33,9 +33,16 @@ const FullscreenTrack = ({
           className=" h-80 w-80 lg:h-[500px] lg:w-[500px] sm:mt-5 mt-28 "
         >
           <img
-            src={activeSong?.image?.[2]?.url}
+            src={
+              activeSong?.image?.[2]?.url ||
+              activeSong?.image?.[1]?.url ||
+              activeSong?.image?.[0]?.url ||
+              "https://res.cloudinary.com/dbr73rpz9/image/upload/v1690447758/chibi_qxvxq6.png"
+            }
             alt="cover art"
-            className="rounded-2xl"
+            width={500}
+            height={500}
+            className="rounded-2xl w-full h-full object-cover"
           />
         </div>
         <div
