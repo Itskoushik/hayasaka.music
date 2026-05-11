@@ -18,30 +18,39 @@ const Player = ({
   appTime,
 }) => {
   const ref = useRef(null);
-  // eslint-disable-next-line no-unused-expressions
-  if (ref.current) {
+
+  // Safely play/pause inside a useEffect to avoid calling during render
+  useEffect(() => {
+    if (!ref.current) return;
     if (isPlaying) {
-      ref.current.play();
+      ref.current.play().catch(() => {});
     } else {
       ref.current.pause();
     }
-  }
+  }, [isPlaying]);
 
   // media session metadata:
-  const mediaMetaData = activeSong.name
+  const mediaMetaData = activeSong?.name
     ? {
         title: activeSong?.name,
         artist: activeSong?.primaryArtists,
-        album: activeSong?.album.name,
+        album: activeSong?.album?.name,
         artwork: [
           {
-            src: activeSong.image[2]?.url,
+            src: activeSong?.image?.[2]?.url,
             sizes: "500x500",
             type: "image/jpg",
           },
         ],
       }
     : {};
+
+  // media session handlers (defined before useEffect so they're stable):
+  const onPlay = () => { handlePlayPause(); };
+  const onPause = () => { handlePlayPause(); };
+  const onPreviousTrack = () => { handlePrevSong(); };
+  const onNextTrack = () => { handleNextSong(); };
+
   useEffect(() => {
     // Check if the Media Session API is available in the browser environment
     if ("mediaSession" in navigator) {
@@ -60,29 +69,16 @@ const Player = ({
         setSeekTime(appTime + 5);
       });
     }
-  }, [mediaMetaData]);
-  // media session handlers:
-  const onPlay = () => {
-    handlePlayPause();
-  };
-
-  const onPause = () => {
-    handlePlayPause();
-  };
-
-  const onPreviousTrack = () => {
-    handlePrevSong();
-  };
-
-  const onNextTrack = () => {
-    handleNextSong();
-  };
+  }, [activeSong?.name]);
 
   useEffect(() => {
+    if (!ref.current) return;
     ref.current.volume = volume;
   }, [volume]);
+
   // updates audio element only on seekTime change (and not on each rerender):
   useEffect(() => {
+    if (!ref.current) return;
     ref.current.currentTime = seekTime;
   }, [seekTime]);
 
