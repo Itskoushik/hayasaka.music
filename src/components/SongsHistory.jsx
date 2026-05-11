@@ -21,5 +21,6 @@ const SongsHistory = () => {
       }, [activeSong]);
 
   return null;
+}
 
-export default SongsHistory
+export default SongsHistory;
