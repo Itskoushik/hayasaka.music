@@ -8,18 +8,15 @@ export default function Home() {
   const [toturialComplete, setToturialComplete] = useState(false);
 
   useLayoutEffect(() => {
-    setToturialComplete(JSON.parse(localStorage.getItem('toturialComplete')));
+    const completed = JSON.parse(localStorage.getItem('toturialComplete'));
+    setToturialComplete(completed);
 
     setTimeout(() => {
-      if (!toturialComplete) {
+      if (!completed) {
         setShowtip(true);
       }
     }, 5000);
   }, [])
-  useEffect(() => {
-
-  }, [toturialComplete])
-
   const handleClick = () => {
     setShowtip(false);
     setToturialComplete(true);
